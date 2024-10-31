@@ -15,6 +15,9 @@
 ### <font color="#EB5B00">4. SEO and Metadata </font>
 ### <font color="#EB5B00">5. Promptopia From scratch</font>
 ### <font color="#EB5B00">6. Promptopia setup and dependencies</font>
+### <font color="#EB5B00">7. Promptopia development main pages</font>
+### <font color="#EB5B00">8. Promptopia NavBar and links functionalities</font>
+
 ---
 
 ## <font color="FFB200"> Information </font>
@@ -93,6 +96,8 @@ export async function GET(request) {
 
 ### <font color="#EB5B00">4. SEO and Metadata </font>
 
+- The purpose of metadata is to help search engines have specific tags or values to search for and create context.
+
 - When exporting from a component I can export Metadata, which could be as simple as a title:'Home', the output would be a head element with the title of Home. That would be static since that value does not change.
 - Regarding the dynamic Metadata, based on parameters like id I would be able to export the title component for that one so the export would change for those purposes.
 
@@ -107,7 +112,7 @@ export async function GET(request) {
 - We create a our page.jsx (just rafce for now) and layout.jsx
 - To fix all warnings add the .vscode file with the content it has inside
 
-### <font color="#EB5B00">6. Promptopia development</font>
+### <font color="#EB5B00">7. Promptopia development main pages</font>
 - **Layout.css structure**
 ``` javascript
 import '@styles/globals.css'
@@ -147,6 +152,12 @@ export default RootLayout
 
 - When working with page.jsx we already begin using tailwind, by adding predetermined classNames with already existing styles, basically we can make components have styles directly from html just by using titles, of course custom css can come in handy but this does most of it, read documentation afterwards and watch full Tailwind CSS on your own time.
 - To indicate our own stling we use _ while the native Tailwind ones use -, all is applied in globals if it will constantly be used, if not I agree with having custom css files component
+- We still use normal react structure in the sense that I input components the same, add styles normally and separate modules to simplify.
+
+### <font color="#EB5B00">8. Promptopia NavBar and links functionalities</font>
+
+- We import link and image directly from next for our navbar, we also use the next-auth library and some of its methods 
+- At start the webpage is for desktop so not everything is responsive, which is fine, later will work on responsive.
 
 ## <font color="#B60071"> Links </font>
 [Next.js full tutorial](https://www.youtube.com/watch?v=wm5gMKuwSYk)
