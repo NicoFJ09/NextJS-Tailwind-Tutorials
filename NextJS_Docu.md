@@ -18,7 +18,10 @@
 ### <font color="#EB5B00">7. Promptopia development main pages</font>
 ### <font color="#EB5B00">8. Promptopia NavBar and links functionalities</font>
 ### <font color="#EB5B00">9. API Management</font>
-### <font color="#EB5B00">10. Create Page</font>
+### <font color="#EB5B00">10. Create Prompt</font>
+### <font color="#EB5B00">11. Display Feed</font>
+### <font color="#EB5B00">12. Profile Page</font>
+### <font color="#EB5B00">13. Next API Routes</font>
 
 ---
 
@@ -33,7 +36,7 @@
 - If I wanted to change the predetermined server side rendering to client side rendering I would have to specify at the top of the page.js "use client"
 - when we use hooks like useState or useEffect I must declare "use client" since these operations are done on client side.
 - When I create new files that are part of routes these are called page.js, these may have components called differently but to be part of the route they are called page in separate folders.
-- I can separate routes by ID using [] equivalent to : for paths
+- I can separate routes by ID using [] equivalent to : for paths when defining files.
 - One can create new layout.js files for specific folders to control general rules for said folder.
 - Then loading.js would create a custom loader for a specific section in a folder. 
 -We can create an error.js file to handle errors, it automatically takes you there (use client is necessary)
@@ -322,6 +325,53 @@ const nextConfig = {
 
 export default nextConfig;
 ```
+### <font color="#EB5B00">10. Create Prompt</font>
+- href='/create-prompt' in the nav file is enough so that the moment that I create a create-prompt folder and add a page.jsx within the path to said page works instantly.
+-Here I can manage all requests and posts directly through create prompt, no external resources like express.js needed.
+- Here we finally use the mongo-API to save this information, here is the implementation code:
+``` javascript
+import {connectToDB} from '@utils/database'
+import Prompt from '@models/prompt';
+
+export const POST = async (req) =>{
+    const {userId, prompt, tag} = await req.json();
+    try{
+        await connectToDB();
+        const newPrompt = new Prompt({
+            creator: userId,
+            prompt,
+            tag
+        })
+
+        await newPrompt.save();
+        
+        return new Response(JSON.stringify(newPrompt), {
+            statur:201
+        })
+    } catch (error){
+        return new Response("Failed to create a new prompt", {status: 500})
+    }
+}
+```
+### <font color="#EB5B00">11. Display Feed</font>
+- Check in your mongoDB cluster the collections section and share_prompt to see your post and user registered.
+- we access our database again and retrieve from the user and profile pic to the content itself and we create a copy functionality for each prompt card, pretty cool overall
+
+### <font color="#EB5B00">12. Profile Page</font>
+- Para este punto vemos que mayoría de los procesos se hacen de la misma forma, son server side, hace displays bonitos con tailwind, hay un par the on click events para botones específicos, las rutas son automatizadas por llamar elementos "page", y acceden a API para obtener datos/ aprovechamos funcionalidades de frontend nativas para hacer gets y fetchear datos particulares con funciones normales de http.
+
+### <font color="#EB5B00">13. Next API Routes</font>
+- Here we manage the routing to be able to use the delete and update prompt through the mongo API, basically I take what I had made for create-prompt and adapt some parts to change functionality but ultimately change the content in the database.
+- Because of version updates syntax changed and I had to adapt my mongo access cde in the api route files `using this from the next library import { NextResponse } from 'next/server';`
+
+### <font color="#EB5B00">14. Next API Routes</font>
+- Last Functionalities are tasks of the remaining components of the page
+- Implement Search, Implement Click on tag and Implement View other profiles.
+
+### <font color="#EB5B00">15. Deployment</font>
+- Using vercel you link up github, you add new repo if it is public, we can add environment variables post deployment, it builds and it gets run on a vercel hosted url.
+- To be able to have all functionalities we update our .env url, regarding NEXTAUTH URL AND NEXTAUTH INTERNAL, SECRET, MONGO URI, GOOGLE CLINET ID, SECRET, etc.
+- we have to update our ip addresses in mongo, our url for cloud, it might take sometime for the user auth to allow sign in, if there are issues redeployment is an option too.
 
 
 ## <font color="#B60071"> Links </font>
