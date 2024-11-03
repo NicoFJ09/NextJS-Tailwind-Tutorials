@@ -21,7 +21,10 @@
 ### <font color="#EB5B00">10. Create Prompt</font>
 ### <font color="#EB5B00">11. Display Feed</font>
 ### <font color="#EB5B00">12. Profile Page</font>
-### <font color="#EB5B00">13. Next API Routes</font>
+### <font color="#EB5B00">13. Special Asignment</font>
+### <font color="#EB5B00">14. Next API Routes</font>
+### <font color="#EB5B00">15. Deployment</font>
+### <font color="#EB5B00">16. NextJS/Tailwind docu review</font>
 
 ---
 
@@ -46,7 +49,6 @@
 - Server side rendering: we already know this one, on each request it is fetched.
 - Static Site Generation, it automatically fetches data and caches it (saves to display said data instead of just updating, it saves it separately, remove "no cache).
 - Incremental Static Generation: After a certain amount of time of having cached it it refreshes it to have clear data on the latest updates, not infinetly stacking.
-
 ### <font color="#EB5B00">3. API Endpoints </font>
 - HTTP requests can be handled through the same routing system as for all frontend uses, here is an express example, all parsing and middleware requirements are syntesized into a single file
 - Normally it would look like this:
@@ -98,14 +100,12 @@ export async function GET(request) {
     return new Response(JSON.stringify(users))
 }
 ```
-
 ### <font color="#EB5B00">4. SEO and Metadata </font>
 
 - The purpose of metadata is to help search engines have specific tags or values to search for and create context.
 
 - When exporting from a component I can export Metadata, which could be as simple as a title:'Home', the output would be a head element with the title of Home. That would be static since that value does not change.
 - Regarding the dynamic Metadata, based on parameters like id I would be able to export the title component for that one so the export would change for those purposes.
-
 ### <font color="#EB5B00">5. Promptopia premise</font>
 - It is a tool that helps to find creative prompts to pass on to AIs that give better results, `Fullstack nextjs 13 react app`.
 ### <font color="#EB5B00">6. Promptopia setup and dependencies</font>
@@ -116,7 +116,6 @@ export async function GET(request) {
 - We will work with tailwind.config (font family and colors added), assets in public (some icons/images) and styles (globals.css) from the tutorial repo.
 - We create a our page.jsx (just rafce for now) and layout.jsx
 - To fix all warnings add the .vscode file with the content it has inside
-
 ### <font color="#EB5B00">7. Promptopia development main pages</font>
 - **Layout.css structure**
 ``` javascript
@@ -158,12 +157,10 @@ export default RootLayout
 - When working with page.jsx we already begin using tailwind, by adding predetermined classNames with already existing styles, basically we can make components have styles directly from html just by using titles, of course custom css can come in handy but this does most of it, read documentation afterwards and watch full Tailwind CSS on your own time.
 - To indicate our own stling we use _ while the native Tailwind ones use -, all is applied in globals if it will constantly be used, if not I agree with having custom css files component
 - We still use normal react structure in the sense that I input components the same, add styles normally and separate modules to simplify.
-
 ### <font color="#EB5B00">8. Promptopia NavBar and links functionalities</font>
 
 - We import link and image directly from next for our navbar, we also use the next-auth library and some of its methods 
 - At start the webpage is for desktop so not everything is responsive, which is fine, later will work on responsive.
-
 ### <font color="#EB5B00">9. API Management</font>
 - For this part we manually go to cloud for the OAuth credentials and MongoDB atlas aswell
 mongopassword: Nico_*1966
@@ -356,23 +353,63 @@ export const POST = async (req) =>{
 ### <font color="#EB5B00">11. Display Feed</font>
 - Check in your mongoDB cluster the collections section and share_prompt to see your post and user registered.
 - we access our database again and retrieve from the user and profile pic to the content itself and we create a copy functionality for each prompt card, pretty cool overall
-
 ### <font color="#EB5B00">12. Profile Page</font>
 - Para este punto vemos que mayoría de los procesos se hacen de la misma forma, son server side, hace displays bonitos con tailwind, hay un par the on click events para botones específicos, las rutas son automatizadas por llamar elementos "page", y acceden a API para obtener datos/ aprovechamos funcionalidades de frontend nativas para hacer gets y fetchear datos particulares con funciones normales de http.
-
 ### <font color="#EB5B00">13. Next API Routes</font>
 - Here we manage the routing to be able to use the delete and update prompt through the mongo API, basically I take what I had made for create-prompt and adapt some parts to change functionality but ultimately change the content in the database.
 - Because of version updates syntax changed and I had to adapt my mongo access cde in the api route files `using this from the next library import { NextResponse } from 'next/server';`
-
-### <font color="#EB5B00">14. Next API Routes</font>
+### <font color="#EB5B00">14. Special Asignment</font>
 - Last Functionalities are tasks of the remaining components of the page
 - Implement Search, Implement Click on tag and Implement View other profiles.
-
 ### <font color="#EB5B00">15. Deployment</font>
 - Using vercel you link up github, you add new repo if it is public, we can add environment variables post deployment, it builds and it gets run on a vercel hosted url.
 - To be able to have all functionalities we update our .env url, regarding NEXTAUTH URL AND NEXTAUTH INTERNAL, SECRET, MONGO URI, GOOGLE CLINET ID, SECRET, etc.
 - we have to update our ip addresses in mongo, our url for cloud, it might take sometime for the user auth to allow sign in, if there are issues redeployment is an option too.
+### <font color="#EB5B00">16. NextJS/Tailwind docu review</font>
+- Besides the files I used, these are the other routing files available: 
+```
+layout	.js .jsx .tsx	Layout
 
+page	.js .jsx .tsx	Page
+
+loading	.js .jsx .tsx	Loading UI
+
+not-found	.js .jsx .tsx	Not found UI
+
+error	.js .jsx .tsx	Error UI
+
+global-error	.js .jsx .tsx	Global error UI
+
+route	.js .ts	API endpoint
+
+template	.js .jsx .tsx	Re-rendered layout
+
+default	.js .jsx .tsx	Parallel route fallback page
+```
+
+```
+@folder	Named slot
+(.)folder	Intercept same level
+(..)folder	Intercept one level above
+(..)(..)folder	Intercept two levels above
+(...)folder	Intercept from root
+```
+
+- All routing conditions are in project structure, to manage dinamic routes, check that syntax.
+
+- Regarding Tailwind:
+
+`First link is mostly setup, nothing too impactful`
+
+- The basis of tailwind is that it deletes the need of custom css but this is not a forced practice, in fact, it can be beneficial to combine these:
+```
+Adding custom stylesheets: Simply link a separate CSS file where you add custom styles for elements or components.
+Custom utility classes: You can extend Tailwind's utilities by adding new ones. This is great for specific branding requirements, such as adding custom colors or animations.
+Component classes: Tailwind is useful for base styling, but custom CSS is helpful for unique components or those requiring complex pseudoselectors.
+```
+
+- The combination depends on me, generally in order to not saturate the use of these we create components if we know the use of styles will be repeated.
+- When focusing on the next tailwind tutorial look for the important stuff, handling responsiveness easily, annotating general syntax structures that are usually seen and bringing the versatility of custom css to combine with tailwind and get the best of 2 worlds (even external components from pages like Uiverse)
 
 ## <font color="#B60071"> Links </font>
 [Next.js full tutorial](https://www.youtube.com/watch?v=wm5gMKuwSYk)
