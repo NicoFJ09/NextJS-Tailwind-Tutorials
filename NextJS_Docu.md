@@ -1,36 +1,42 @@
-# <font color="E4003A"> Next.JS Full Course </font>
+# 🚀 Next.JS Full Course
 
-##  <font color="#FFB200"> Preliminar Info </font> 
-- Next.js renders before sending info to server while react renders in the client directly, this makes next.js faster because things are instantly rendered when they reacht the client side, its feels faster because the load time would be continuous at first and then be fluid, for react it might take time rendering specific sections one by one.
-- Routing is done using react router in react, in next the routing is managed through files, you can just access sections using the domain and the about path, way easier, like managing normal files.
-- We can build and deploy APIs without managing server infrastructure, when deploying the platforms runs and scales these API functions.
-- Loading is done per pages which you are in to save resources.
-- It allows you to concentrate on the main code, even with all of this, it is just reacts, it's built over it.
-- No need to specify react imports either
+## 📚 Preliminary Info
+> Next.js renders before sending info to the server while React renders directly in the client. This makes Next.js faster because things are instantly rendered when they reach the client side. It feels faster because the load time is continuous at first and then fluid, whereas in React it might take time rendering specific sections one by one.
 
-##  <font color="#FFB200"> Content </font>
-### <font color="#EB5B00">1. Creating Next proyect </font>
-### <font color="#EB5B00">2. Data Fetching </font>
-### <font color="#EB5B00">3. API Endpoints </font>
-### <font color="#EB5B00">4. SEO and Metadata </font>
-### <font color="#EB5B00">5. Promptopia From scratch</font>
-### <font color="#EB5B00">6. Promptopia setup and dependencies</font>
-### <font color="#EB5B00">7. Promptopia development main pages</font>
-### <font color="#EB5B00">8. Promptopia NavBar and links functionalities</font>
-### <font color="#EB5B00">9. API Management</font>
-### <font color="#EB5B00">10. Create Prompt</font>
-### <font color="#EB5B00">11. Display Feed</font>
-### <font color="#EB5B00">12. Profile Page</font>
-### <font color="#EB5B00">13. Special Asignment</font>
-### <font color="#EB5B00">14. Next API Routes</font>
-### <font color="#EB5B00">15. Deployment</font>
-### <font color="#EB5B00">16. NextJS/Tailwind docu review</font>
+### Key Differences with React:
+- 🎯 **Server-Side Rendering**: Faster initial load
+- 📁 **File-based Routing**: Easier navigation
+- 🛠️ **Built-in API Support**: No server infrastructure needed
+- 📦 **Optimized Loading**: Resource-efficient page loading
+- ⚡ **React Foundation**: Built on React fundamentals
+- 🚫 **No need to specify React imports**: Simplified code
 
 ---
 
-## <font color="FFB200"> Information </font>
+## 📋 Course Content
 
-### <font color="#EB5B00">1. Creating Next proyect </font>
+### Sections:
+1. 🏗️ [**Creating Next Project**](#🏗️-creating-next-project)
+2. 📥 [**Data Fetching**](#📥-data-fetching)
+3. 🔌 [**API Endpoints**](#🔌-api-endpoints)
+4. 🎯 [**SEO and Metadata**](#🎯-seo-and-metadata)
+5. 📝 [**Promptopia From Scratch**](#📝-promptopia-from-scratch)
+6. ⚙️ [**Promptopia Setup and Dependencies**](#⚙️-promptopia-setup-and-dependencies)
+7. 🖥️ [**Promptopia Development Main Pages**](#🖥️-promptopia-development-main-pages)
+8. 🔗 [**Promptopia NavBar and Links Functionalities**](#🔗promptopia-navbar-and-links-functionalities)
+9. 🌐 [**API Management**](#🌐-api-management)
+10. ✏️ [**Create Prompt**](#✏️-create-prompt)
+11. 📰 [**Display Feed**](#📰-dislay-feed)
+12. 👤 [**Profile Page**](#👤-profile-page) 
+13. 🔄 [**Next API Routes**](#🔄-next-api-routes)
+14. 📝[**Special Assignment**](#📝-special-assignment)
+15. 🚀 [**Deployment**](#🚀-deployment)
+16. 📄 [**NextJS and Tailwind Documentation Review**](#📄-nextjs-and-tailwind-documentation-review)
+
+---
+
+## ℹ️ **Information**
+### 🏗️ Creating Next Project
 - npx create-next-app@latest ./
 - say no to most things beside the recommended one and tailwind use
 - I can control general structure throught he layout.js file
@@ -45,11 +51,11 @@
 -We can create an error.js file to handle errors, it automatically takes you there (use client is necessary)
 
 ---
-### <font color="#EB5B00">2. Data Fetching </font>
+### 📥 **Data Fetching**
 - Server side rendering: we already know this one, on each request it is fetched.
 - Static Site Generation, it automatically fetches data and caches it (saves to display said data instead of just updating, it saves it separately, remove "no cache).
 - Incremental Static Generation: After a certain amount of time of having cached it it refreshes it to have clear data on the latest updates, not infinetly stacking.
-### <font color="#EB5B00">3. API Endpoints </font>
+### 🔌 **API Endpoints**
 - HTTP requests can be handled through the same routing system as for all frontend uses, here is an express example, all parsing and middleware requirements are syntesized into a single file
 - Normally it would look like this:
 ``` javascript
@@ -100,15 +106,15 @@ export async function GET(request) {
     return new Response(JSON.stringify(users))
 }
 ```
-### <font color="#EB5B00">4. SEO and Metadata </font>
+### 🎯 **SEO and Metadata**
 
 - The purpose of metadata is to help search engines have specific tags or values to search for and create context.
 
 - When exporting from a component I can export Metadata, which could be as simple as a title:'Home', the output would be a head element with the title of Home. That would be static since that value does not change.
 - Regarding the dynamic Metadata, based on parameters like id I would be able to export the title component for that one so the export would change for those purposes.
-### <font color="#EB5B00">5. Promptopia premise</font>
+### 📝 **Promptopia From Scratch**
 - It is a tool that helps to find creative prompts to pass on to AIs that give better results, `Fullstack nextjs 13 react app`.
-### <font color="#EB5B00">6. Promptopia setup and dependencies</font>
+### ⚙️ **Promptopia setup and dependencies**
 - install dependencies for the other ones"npm install react@18 react-dom@18"
 - Install the ones I will use: "npm install bcrypt mongodb mongoose next-auth" (all 4)
 - Delete the app folder and create a new one, along with components (js frontend) and models files (for mongodb and mongoose models).
@@ -116,7 +122,7 @@ export async function GET(request) {
 - We will work with tailwind.config (font family and colors added), assets in public (some icons/images) and styles (globals.css) from the tutorial repo.
 - We create a our page.jsx (just rafce for now) and layout.jsx
 - To fix all warnings add the .vscode file with the content it has inside
-### <font color="#EB5B00">7. Promptopia development main pages</font>
+### 🖥️ **Promptopia Development Main Pages**
 - **Layout.css structure**
 ``` javascript
 import '@styles/globals.css'
@@ -157,11 +163,11 @@ export default RootLayout
 - When working with page.jsx we already begin using tailwind, by adding predetermined classNames with already existing styles, basically we can make components have styles directly from html just by using titles, of course custom css can come in handy but this does most of it, read documentation afterwards and watch full Tailwind CSS on your own time.
 - To indicate our own stling we use _ while the native Tailwind ones use -, all is applied in globals if it will constantly be used, if not I agree with having custom css files component
 - We still use normal react structure in the sense that I input components the same, add styles normally and separate modules to simplify.
-### <font color="#EB5B00">8. Promptopia NavBar and links functionalities</font>
+### 🔗 **Promptopia NavBar and Links Functionalities**
 
 - We import link and image directly from next for our navbar, we also use the next-auth library and some of its methods 
 - At start the webpage is for desktop so not everything is responsive, which is fine, later will work on responsive.
-### <font color="#EB5B00">9. API Management</font>
+### 🌐 **API Management**
 - For this part we manually go to cloud for the OAuth credentials and MongoDB atlas aswell
 mongopassword: Nico_*1966
 
@@ -322,7 +328,7 @@ const nextConfig = {
 
 export default nextConfig;
 ```
-### <font color="#EB5B00">10. Create Prompt</font>
+### ✏️ **Create Prompt**
 - href='/create-prompt' in the nav file is enough so that the moment that I create a create-prompt folder and add a page.jsx within the path to said page works instantly.
 -Here I can manage all requests and posts directly through create prompt, no external resources like express.js needed.
 - Here we finally use the mongo-API to save this information, here is the implementation code:
@@ -350,22 +356,22 @@ export const POST = async (req) =>{
     }
 }
 ```
-### <font color="#EB5B00">11. Display Feed</font>
+### 📰 **Display Feed**
 - Check in your mongoDB cluster the collections section and share_prompt to see your post and user registered.
 - we access our database again and retrieve from the user and profile pic to the content itself and we create a copy functionality for each prompt card, pretty cool overall
-### <font color="#EB5B00">12. Profile Page</font>
+### 👤 **Profile Page**
 - Para este punto vemos que mayoría de los procesos se hacen de la misma forma, son server side, hace displays bonitos con tailwind, hay un par the on click events para botones específicos, las rutas son automatizadas por llamar elementos "page", y acceden a API para obtener datos/ aprovechamos funcionalidades de frontend nativas para hacer gets y fetchear datos particulares con funciones normales de http.
-### <font color="#EB5B00">13. Next API Routes</font>
+### **🔄 Next API Routes**
 - Here we manage the routing to be able to use the delete and update prompt through the mongo API, basically I take what I had made for create-prompt and adapt some parts to change functionality but ultimately change the content in the database.
 - Because of version updates syntax changed and I had to adapt my mongo access cde in the api route files `using this from the next library import { NextResponse } from 'next/server';`
-### <font color="#EB5B00">14. Special Asignment</font>
+### **📝Special Assignment**
 - Last Functionalities are tasks of the remaining components of the page
 - Implement Search, Implement Click on tag and Implement View other profiles.
-### <font color="#EB5B00">15. Deployment</font>
+### **🚀 Deployment**
 - Using vercel you link up github, you add new repo if it is public, we can add environment variables post deployment, it builds and it gets run on a vercel hosted url.
 - To be able to have all functionalities we update our .env url, regarding NEXTAUTH URL AND NEXTAUTH INTERNAL, SECRET, MONGO URI, GOOGLE CLINET ID, SECRET, etc.
 - we have to update our ip addresses in mongo, our url for cloud, it might take sometime for the user auth to allow sign in, if there are issues redeployment is an option too.
-### <font color="#EB5B00">16. NextJS/Tailwind docu review</font>
+### **📄 NextJS and Tailwind Documentation Review**
 - Besides the files I used, these are the other routing files available: 
 ```
 layout	.js .jsx .tsx	Layout
@@ -411,22 +417,17 @@ Component classes: Tailwind is useful for base styling, but custom CSS is helpfu
 - The combination depends on me, generally in order to not saturate the use of these we create components if we know the use of styles will be repeated.
 - When focusing on the next tailwind tutorial look for the important stuff, handling responsiveness easily, annotating general syntax structures that are usually seen and bringing the versatility of custom css to combine with tailwind and get the best of 2 worlds (even external components from pages like Uiverse)
 
-## <font color="#B60071"> Links </font>
-[Next.js full tutorial](https://www.youtube.com/watch?v=wm5gMKuwSYk)
+## 🔗 Useful Links
 
-[Documentation Next setup](https://nextjs.org/learn/dashboard-app/getting-started)
+### 📺 Video Tutorials
+- [Next.js Full Tutorial](https://www.youtube.com/watch?v=wm5gMKuwSYk)
+- [Tailwind Full Tutorial](https://www.youtube.com/watch?v=tS7upsfuxmo)
 
-[When to use server and client components](https://nextjs.org/learn/react-foundations/server-and-client-components)
-
-[Documentation Next Proyect Structure](https://nextjs.org/learn/dashboard-app/getting-started)
-
-[Tailwind full tutorial](https://www.youtube.com/watch?v=tS7upsfuxmo)
-
-[Documentation Tailwind Setup](https://tailwindcss.com/docs/installation)
-
-[Documentation Tailwind First Fundamentals](https://tailwindcss.com/docs/utility-first)
-
-[Documentation NextAuth](https://next-auth.js.org/)
-
-[Documentation MongoDB](https://www.mongodb.com/docs/)
-
+### 📄 Documentation
+- [Next.js Setup Documentation](https://nextjs.org/learn/dashboard-app/getting-started)
+- [When to Use Server and Client Components](https://nextjs.org/learn/react-foundations/server-and-client-components)
+- [Next.js Project Structure Documentation](https://nextjs.org/learn/dashboard-app/getting-started)
+- [Tailwind Setup Documentation](https://tailwindcss.com/docs/installation)
+- [Tailwind First Fundamentals Documentation](https://tailwindcss.com/docs/utility-first)
+- [NextAuth Documentation](https://next-auth.js.org/)
+- [MongoDB Documentation](https://www.mongodb.com/docs/)
